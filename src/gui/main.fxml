@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GUIController2">
+    <top>
+    </top>
+    <center>
+        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="583.0" prefWidth="651.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Kunden">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="10.0" top="4.0" />
+                    </VBox.margin>
+                </Label>
+                <TableView fx:id="tableViewCustomers" minHeight="150.0" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0">
+                    <columns>
+                        <TableColumn fx:id="customerIdColumn" editable="false" maxWidth="100.0" minWidth="40.0" prefWidth="40.0" text="Id" />
+                        <TableColumn fx:id="customerNameColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="150.0" prefWidth="250.0" text="Name" />
+                        <TableColumn fx:id="customerAmountColumn" editable="false" maxWidth="100.0" minWidth="50.0" prefWidth="50.0" text="Anzahl" />
+                    </columns>
+                    <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+                <Label text="Cargo-Instanzen">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </VBox.margin>
+                </Label>
+                <AnchorPane>
+                    <children>
+                        <ChoiceBox fx:id="choiceBoxCargoType_select" layoutY="13.0" prefWidth="150.0" />
+                    </children>
+                    <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </VBox.margin>
+                </AnchorPane>
+                <TableView fx:id="tableViewStorageItems" minHeight="150.0" minWidth="150.0" prefHeight="250.0" prefWidth="250.0">
+                    <columns>
+                        <TableColumn fx:id="posIdColumn" maxWidth="100.0" minWidth="40.0" prefWidth="40.0" text="Pos" />
+                        <TableColumn fx:id="cargoColumn" maxWidth="1.7976931348623157E308" minWidth="140.0" prefWidth="250.0" text="Cargo" />
+                        <TableColumn fx:id="sizeColumn" maxWidth="100.0" minWidth="50.0" prefWidth="50.0" text="Größe" />
+                        <TableColumn fx:id="hazardsColumn" maxWidth="250.0" minWidth="150.0" prefWidth="150.0" text="Gefahrstoffe" />
+                        <TableColumn fx:id="ownerColumn" maxWidth="350.0" minWidth="100.0" prefWidth="100.0" text="Kunde" />
+                        <TableColumn fx:id="dateColumn" maxWidth="250.0" minWidth="150.0" prefWidth="150.0" text="Datum / Uhrzeit" />
+                    </columns>
+                    <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </children>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </VBox>
+    </center>
+    <right>
+        <VBox BorderPane.alignment="CENTER" />
+    </right>
+    <left>
+        <VBox minHeight="450.0" minWidth="250.0" prefHeight="450.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+            <children>
+                <TabPane prefHeight="512.0" prefWidth="250.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="Kunden">
+                            <content>
+                                <VBox prefHeight="462.0" prefWidth="249.0">
+                                    <children>
+                                        <GridPane prefHeight="218.0" prefWidth="229.0" vgap="4.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" />
+                                                <ColumnConstraints hgrow="SOMETIMES" />
+                                                <ColumnConstraints hgrow="SOMETIMES" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="25.0" minHeight="4.0" prefHeight="4.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Button fx:id="btnCustomerAdd" mnemonicParsing="false" onAction="#addCustomer" text="Anlegen" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                                <TextField fx:id="tfCustomerName" maxWidth="150.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                    <GridPane.margin>
+                                                        <Insets />
+                                                    </GridPane.margin>
+                                                </TextField>
+                                                <Label maxWidth="100.0" minWidth="50.0" text="Name" GridPane.rowIndex="1" />
+                                                <Label prefHeight="17.0" prefWidth="241.0" text="Kunde" GridPane.columnSpan="2">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0" />
+                                                    </font>
+                                                </Label>
+                                                <ComboBox fx:id="comboBox_deleteCustomers" maxWidth="150.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                                                <Button fx:id="btnDeleteCustomer" mnemonicParsing="false" onAction="#deleteCustomer" text="Löschen" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                                                <Label maxWidth="100.0" minWidth="60.0" text="Kunden-ID" GridPane.rowIndex="3" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </Tab>
+
+                        <Tab text="Cargo">
+                            <content>
+                                <VBox prefHeight="450.0" prefWidth="250.0">
+                                    <children>
+                                        <GridPane prefHeight="450.0" prefWidth="230.0" vgap="4.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" />
+                                                <ColumnConstraints hgrow="SOMETIMES" />
+                                                <ColumnConstraints />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label minWidth="60.0" text="Kunden-ID" GridPane.rowIndex="1" />
+                                                <Label maxWidth="100.0" minWidth="60.0" text="Größe" GridPane.rowIndex="2" />
+                                                <ChoiceBox fx:id="choiceBoxCargoSize" maxWidth="150.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                                <Label minWidth="60.0" text="Cargotyp" GridPane.rowIndex="3" />
+                                                <ChoiceBox fx:id="choiceBoxCargoType_add" maxWidth="150.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                                                <Label maxWidth="100.0" minWidth="60.0" text="Gefahrenstoffe" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+                                                <CheckBox fx:id="checkboxCargoHazardExplosive" maxWidth="100.0" minWidth="70.0" mnemonicParsing="false" text="Explosive" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                <CheckBox fx:id="checkboxCargoHazardFlammable" maxWidth="100.0" minWidth="80.0" mnemonicParsing="false" text="Flammable" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                <CheckBox fx:id="checkboxCargoHazardToxic" maxWidth="100.0" minWidth="50.0" mnemonicParsing="false" text="Toxic" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                                <CheckBox fx:id="checkboxCargoHazardRadioactive" maxWidth="100.0" minWidth="85.0" mnemonicParsing="false" text="Radioactive" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                                <Button fx:id="btnAddCargo" mnemonicParsing="false" onAction="#addCargo" text="Anlegen" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="12" />
+                                                <Label prefHeight="17.0" prefWidth="243.0" text="Cargo" GridPane.columnSpan="3">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0" />
+                                                    </font>
+                                                </Label>
+                                                <CheckBox fx:id="checkboxSolid" maxWidth="100.0" minWidth="50.0" mnemonicParsing="false" text="Solid" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <CheckBox fx:id="checkboxFragile" maxWidth="100.0" minWidth="60.0" mnemonicParsing="false" text="Fragile" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <CheckBox fx:id="checkboxPressurized" maxWidth="100.0" minWidth="81.0" mnemonicParsing="false" text="Pressurized" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                                                <ComboBox fx:id="comboBox_addCargo_customers" maxWidth="150.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                                <Label fx:id="lblStorageLevelInPercent" text="10 %" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="14" />
+                                                <Label maxWidth="100.0" minWidth="80.0" text="Lager" GridPane.rowIndex="13">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label maxWidth="100.0" minWidth="80.0" text="Füllstand" GridPane.rowIndex="14" />
+                                                <Label maxWidth="100.0" minWidth="80.0" text="Freie Kapazität" GridPane.rowIndex="15" />
+                                                <Label fx:id="lblFreeCapacity" text="5" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="15" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </children>
+        </VBox>
+    </left>
+    <bottom>
+        <HBox prefHeight="150.0" prefWidth="650.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox minHeight="100.0" minWidth="200.0" prefHeight="113.0" prefWidth="230.0">
+                    <children>
+                        <Label text="Gefahrstoffe im Lager">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <ListView fx:id="lvHazardsInStorage" prefHeight="100.0">
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </ListView>
+                    </children>
+                </VBox>
+                <VBox minHeight="100.0" minWidth="200.0" prefHeight="113.0" prefWidth="230.0">
+                    <children>
+                        <Label text="Gefahrstoffe n. im Lager">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <ListView fx:id="lvHazardsNotInStorage" prefHeight="100.0">
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </ListView>
+                    </children>
+                </VBox>
+                <VBox minHeight="100.0" minWidth="200.0" prefHeight="113.0" prefWidth="440.0">
+                    <children>
+                        <Label text="Informationen">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <ScrollPane prefHeight="100.0">
+                            <content>
+                                <Label fx:id="lblInfo">
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </Label>
+                            </content>
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </ScrollPane>
+                    </children>
+                </VBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" top="10.0" />
+            </BorderPane.margin>
+        </HBox>
+    </bottom>
+</BorderPane>
